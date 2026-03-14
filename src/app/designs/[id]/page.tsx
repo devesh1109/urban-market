@@ -2,6 +2,14 @@ import Link from "next/link";
 import { Star, Heart, Share2, CheckCircle2, Download, FileText, LayoutDashboard, Flag } from "lucide-react";
 import ImageGallery from "@/components/ImageGallery";
 
+const STATIC_DESIGN_IDS = ["d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8"];
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return STATIC_DESIGN_IDS.map((id) => ({ id }));
+}
+
 // Mock fetching design data
 export default async function DesignDetail({ params }: { params: Promise<{ id: string }> }) {
   // In Next.js 15, params is a Promise that needs to be awaited
